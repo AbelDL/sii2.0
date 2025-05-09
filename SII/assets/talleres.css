@@ -1,0 +1,112 @@
+/* Fondo general y tipografía */
+body {
+  background-color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* ENCABEZADO */
+.header {
+  background-color: #0a2a5e;
+  color: white;
+  padding: 15px 0;
+}
+
+.logo-left,
+.logo-right {
+  height: 50px;
+}
+
+.header div > div {
+  font-size: 14px;
+}
+
+.header strong {
+  font-size: 16px;
+}
+
+/* BOTONES DE NAVEGACIÓN */
+.nav-btns {
+  margin-top: 15px;
+}
+
+.nav-btns .btn {
+  background-color: #0a2a5e;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  min-width: 120px;
+}
+
+.nav-btns .btn.active {
+  background-color: #6c9ef2;
+  border-color: #6c9ef2;
+}
+
+.nav-btns .dropdown-toggle {
+  background-color: #0a2a5e;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+}
+
+/* Menú desplegable */
+.dropdown-menu .dropdown-item {
+  font-size: 14px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #1B396A;
+  color: white;
+}
+
+/* VIDEO / CONTENIDO PRINCIPAL */
+.video-placeholder {
+  background-color: #dcdcdc;
+  height: 180px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+/* IMÁGENES */
+.img-thumb {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* ENLACES */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.logout {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.logout img {
+  width: 40px;
+}
+.home {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.home img {
+  width: 40px;
+}

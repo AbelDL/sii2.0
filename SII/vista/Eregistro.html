@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Alumno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="../assets/alumnosistema.css">
+</head>
+<body>
+
+  <header class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center px-3">
+      <img src="../assets/imagenes/secretaria.png" alt="Logo SEP" class="logo-left">
+      <div>
+        <div>Sistema Integral de Información</div>
+        <strong>INSTITUTO TECNOLOGICO DE MILPA ALTA</strong>
+      </div>
+      <img src="../assets/imagenes/nacional.png" alt="Logo TecNM" class="logo-right">
+    </div>
+  </header>
+
+  <div class="container nav-buttons mt-3">
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+        <div>
+            <a href="Eregistro.html" class="btn btn-light">Registro</a>
+          </div>
+          <div>
+            <a href="Ehistorial.html" class="btn btn-light">Historial Académico</a>
+          </div>
+          <div>
+            <a href="Etramites.html" class="btn btn-light">Trámites</a>
+          </div>
+         
+    </div>
+  </div>
+
+  
+  
+  
+
+  <div class="welcome">
+    Bienvenid(@)<br>
+    Perla Angelica Hernandez Aguilar<br>
+    (211070025)
+  </div>
+
+  <img src="../assets/imagenes/mapache.png" alt="Engranaje" class="gear-img">
+
+  <div class="container mt-4">
+    <form>
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Tipo_persona</label>
+        <div class="col-sm-9">
+          <select class="form-select" name="tipo_persona" id="tipo_persona" onchange="actualizarCarreras()">
+            <option value="">Selecciona...</option>
+            <option value="alumno">Alumno</option>
+            <option value="docente">Docente</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nombre Completo</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="nombre_completo">
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Matrícula/ID</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="matricula">
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Carrera/Departamento</label>
+        <div class="col-sm-9">
+          <select class="form-select" name="carrera_departamento" id="carrera_departamento">
+            <option value="">Selecciona primero el tipo de persona</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="documentos[]" value="certificado" id="certificado">
+        <label class="form-check-label" for="certificado">Certificado de Estudio</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="documentos[]" value="domicilio" id="domicilio">
+        <label class="form-check-label" for="domicilio">Comprobante de Domicilio</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="documentos[]" value="seguro" id="seguro">
+        <label class="form-check-label" for="seguro">Seguro IMSS/ISSSTE particular</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="documentos[]" value="curp" id="curp">
+        <label class="form-check-label" for="curp">CURP</label>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" name="documentos[]" value="otro" id="otro">
+        <label class="form-check-label" for="otro">OTRO</label>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  
+  <script>
+    function actualizarCarreras() {
+      const tipo = document.getElementById("tipo_persona").value;
+      const carreraSelect = document.getElementById("carrera_departamento");
+  
+      // Limpiar opciones
+      carreraSelect.innerHTML = "";
+  
+      if (tipo === "alumno") {
+        const opcionesAlumno = ["IGE", "ISC", "IBQ", "IGA"];
+        opcionesAlumno.forEach(opcion => {
+          const opt = document.createElement("option");
+          opt.value = opcion;
+          opt.text = opcion;
+          carreraSelect.add(opt);
+        });
+      } else if (tipo === "docente") {
+        const opcionesDocente = ["Sistemas", "Gestión", "Bioquímica", "Alimento"];
+        opcionesDocente.forEach(opcion => {
+          const opt = document.createElement("option");
+          opt.value = opcion;
+          opt.text = opcion;
+          carreraSelect.add(opt);
+        });
+      } else {
+        const opt = document.createElement("option");
+        opt.text = "Selecciona primero el tipo de persona";
+        carreraSelect.add(opt);
+      }
+    }
+  </script>
+  
+
+  <div class="home">
+    <a href="Eprofesionales.html">
+      <img src="../assets/imagenes/inicio.png" alt="Ir al inicio"><br>
+      Inicio
+    </a>
+  </div>
+
+  <div class="logout">
+    <a href="index.html">
+      <img src="../assets/imagenes/desconectar.png" alt="Cerrar sesión"><br>
+      Cerrar sesión
+    </a>
+  </div>
+  
+</body>
+</html>

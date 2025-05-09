@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Alumno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../assets/alumnosistema.css">
+</head>
+<body>
+
+<header class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center px-3">
+    <img src="../assets/imagenes/secretaria.png" alt="Logo SEP" class="logo-left">
+    <div>
+      <div>Sistema Integral de Información</div>
+      <strong>INSTITUTO TECNOLOGICO DE MILPA ALTA</strong>
+    </div>
+    <img src="../assets/imagenes/nacional.png" alt="Logo TecNM" class="logo-right">
+  </div>
+</header>
+
+<div class="container nav-buttons mt-3">
+  <div class="d-flex justify-content-center flex-wrap gap-3">
+    <div><a href="aydehorario.html" class="btn btn-light">Generar Horario</a></div>
+    <div><a href="aydeseguimiento.html" class="btn btn-light">Seguimiento Docente</a></div>
+    <div><a href="aydegrupos.html" class="btn btn-light">Grupos</a></div>
+    <div><a href="aydealumnos.html" class="btn btn-light">Alumnos</a></div>
+    <div><a href="aydedocente.html" class="btn btn-light">Docente</a></div>
+  </div>
+</div>
+
+<div class="welcome">
+  Bienvenid(@)<br>
+  Perla Angelica Hernandez Aguilar<br>
+  (211070025)
+</div>
+
+<img src="../assets/imagenes/mapache.png" alt="Engranaje" class="gear-img">
+
+<!-- FORMULARIO PARA CREAR HORARIO -->
+<div class="container mt-4">
+  <div class="card p-4">
+    <h4>Crear Horario</h4>
+    <form id="formHorario">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label for="grupo" class="form-label">Grupo</label>
+          <select id="grupo" class="form-control" required>
+            <option value="">Selecciona un grupo</option>
+            <option value="4A">4A</option>
+            <option value="6B">6B</option>
+            <option value="8A">8A</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="materia" class="form-label">Materia</label>
+          <select id="materia" class="form-control" required>
+            <option value="">Selecciona una materia</option>
+            <option value="Programación Web">Programación Web</option>
+            <option value="Base de Datos">Base de Datos</option>
+            <option value="Sistemas Distribuidos">Sistemas Distribuidos</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="docente" class="form-label">Docente</label>
+          <select id="docente" class="form-control" required>
+            <option value="">Selecciona un docente</option>
+            <option value="Juan Pérez">Juan Pérez</option>
+            <option value="Ana Gómez">Ana Gómez</option>
+            <option value="Luis Torres">Luis Torres</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="dia" class="form-label">Día</label>
+          <select id="dia" class="form-control" required>
+            <option value="">Selecciona un día</option>
+            <option>Lunes</option>
+            <option>Martes</option>
+            <option>Miércoles</option>
+            <option>Jueves</option>
+            <option>Viernes</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="hora" class="form-label">Hora</label>
+          <input type="time" id="hora" class="form-control" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="salon" class="form-label">Salón</label>
+          <input type="text" id="salon" class="form-control" required>
+        </div>
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-success">Agregar al Horario</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- TABLAS DE HORARIOS -->
+  <div class="mt-4" id="contenedorHorarios">
+    <!-- Aquí se agregan las tablas por grupo -->
+  </div>
+</div>
+
+<!-- BOTÓN SALIR -->
+<div class="logout">
+  <a href="index.html">
+    <img src="../assets/imagenes/desconectar.png" alt="Cerrar sesión"><br>
+    Cerrar sesión
+  </a>
+</div>
+
+<!-- SCRIPT PARA AGRUPAR POR GRUPO -->
+<script>
+  const horarios = {};
+
+  document.getElementById('formHorario').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const grupo = document.getElementById('grupo').value;
+    const materia = document.getElementById('materia').value;
+    const docente = document.getElementById('docente').value;
+    const dia = document.getElementById('dia').value;
+    const hora = document.getElementById('hora').value;
+    const salon = document.getElementById('salon').value;
+
+    const fila = `<tr>
+                    <td>${dia}</td>
+                    <td>${hora}</td>
+                    <td>${materia}</td>
+                    <td>${docente}</td>
+                    <td>${salon}</td>
+                  </tr>`;
+
+    if (!horarios[grupo]) {
+      horarios[grupo] = [];
+    }
+
+    horarios[grupo].push(fila);
+    actualizarVistaHorarios();
+    document.getElementById('formHorario').reset();
+  });
+
+  function actualizarVistaHorarios() {
+    const contenedor = document.getElementById('contenedorHorarios');
+    contenedor.innerHTML = '';
+
+    for (const grupo in horarios) {
+      const tabla = `
+        <div class="card mt-3">
+          <div class="card-header bg-primary text-white">Horario del Grupo: ${grupo}</div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Día</th>
+                  <th>Hora</th>
+                  <th>Materia</th>
+                  <th>Docente</th>
+                  <th>Salón</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${horarios[grupo].join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>`;
+      contenedor.innerHTML += tabla;
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Fondo general y tipografía */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  /* ENCABEZADO */
+  .header {
+    background-color: #0a2a5e;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+  }
+  
+  .logo-left,
+  .logo-right {
+    height: 50px;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+  
+  .header-content div {
+    font-size: 14px;
+  }
+  
+  .header-content strong {
+    font-size: 16px;
+  }
+  
+  /* BOTONES DE NAVEGACIÓN */
+  .nav-btns {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-btns .btn {
+    background-color: #0a2a5e;
+    border-radius: 10px;
+    margin: 10px 5px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    min-width: 120px;
+  }
+  
+  .nav-btns .btn.active {
+    background-color: #6c9ef2;
+    border-color: #6c9ef2;
+  }
+  
+  .nav-btns .dropdown-toggle {
+    background-color: #0a2a5e;
+    border-radius: 10px;
+    font-size: 14px;
+    color: white;
+    border: none;
+  }
+  
+  /* Menú desplegable */
+  .dropdown-menu .dropdown-item {
+    font-size: 14px;
+  }
+  
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #1B396A;
+    color: white;
+  }
+  
+  /* VIDEO / CONTENIDO PRINCIPAL */
+  .video-placeholder {
+    background-color: #dcdcdc;
+    height: 180px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  
+  /* IMÁGENES */
+  .img-thumb {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  /* CAMPOS DE FORMULARIO */
+  input.form-control {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* ENLACES */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  .logout {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .logout img {
+    width: 40px;
+  }
+  .logout {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.logout img {
+  width: 40px;
+}
+
+.home {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.home img {
+  width: 40px;
+}

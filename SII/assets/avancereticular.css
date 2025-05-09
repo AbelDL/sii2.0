@@ -1,0 +1,120 @@
+
+    .cursada { background-color: #58A65C; }
+    .cursando { background-color: #8B5FBF; }
+    .prioritaria { background-color: #F2D024; }
+    .curso-especial { background-color: #D4A017; }
+    .curso-reprobado { background-color: #C62828; }
+    .reprobada { background-color: #1B396A; }
+    .bloqueada { background-color: #ccc; color: #333; }
+
+    body {
+        background-color: #fff;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      
+      header {
+        background-color: #0a2a5e;
+        color: white;
+        padding: 15px 0;
+      }
+      
+      .logo-left, .logo-right {
+        height: 50px;
+      }
+      
+      .nav-buttons .btn {
+        background-color: #e6e6e6;
+        border-radius: 10px;
+        margin: 10px;
+        font-size: 14px;
+      }
+      
+      .reticula-container {
+        margin: 40px auto;
+        max-width: 1200px;
+        overflow-x: auto;
+      }
+      
+      .semestre-col {
+        min-width: 150px;
+      }
+      
+      .materia {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        color: white;
+        font-size: 13px;
+      }
+      
+      .cursada {
+        background-color: #58A65C; /* verde */
+      }
+      
+      .disponible {
+        background-color: #1B396A; /* azul */
+        cursor: pointer;
+      }
+      
+      .bloqueada {
+        background-color: #ccc; /* gris */
+        color: #333;
+      }
+      
+      .materia input {
+        margin-right: 5px;
+      }
+      
+      .horario-box {
+        margin-top: 30px;
+        text-align: left;
+      }
+      
+      .horario-box h4 {
+        background-color: #1B396A;
+        color: white;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+      }
+      
+      .horario-list {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 0 0 5px 5px;
+        background-color: #f9f9f9;
+      }
+      .leyenda-item {
+        padding: 8px 12px;
+        border-radius: 5px;
+        color: white;
+        margin: 5px;
+        font-size: 14px;
+        min-width: 200px;
+      }
+      .leyenda-item:nth-child(7) {
+        color: #333; /* para el gris */
+      }
+      .logout {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        text-align: center;
+        font-size: 12px;
+      }
+      
+      .logout img {
+        width: 40px;
+      }
+      .home {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        text-align: center;
+        font-size: 12px;
+      }
+      
+      .home img {
+        width: 40px;
+      }
+      

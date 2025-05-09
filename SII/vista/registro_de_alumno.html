@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Retícula Alumno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/registro_de_alumno.css">
+</head>
+<body>
+
+  <header class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center px-3">
+      <img src="../assets/imagenes/secretaria.png" alt="Logo SEP" class="logo-left">
+      <div>
+        <div>Sistema Integral de Información</div>
+        <strong>INSTITUTO TECNOLÓGICO DE MILPA ALTA</strong>
+      </div>
+      <img src="../assets/imagenes/nacional.png" alt="Logo TecNM" class="logo-right">
+    </div>
+  </header>
+
+  <div class="container nav-buttons mt-3">
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+        <div>
+            <a href="perfil.html" class="btn btn-light">Perfil</a>
+          </div>
+      
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Información escolar
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="kardex.html">kardex</a></li>
+          <li><a class="dropdown-item" href="boleta_calificaciones.html">Boleta oficial</a></li>
+          <li><a class="dropdown-item" href="avanceretiruclar.html">Avance reticular</a></li>
+          <li><a class="dropdown-item" href="servicioalumno.html">Servicio social</a></li>
+          <li><a class="dropdown-item" href="residencias.html">Recidencias profesionales</a></li>
+     
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Inscripciones
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="alumnodocumentacion.html">Documentos</a></li>
+          <li><a class="dropdown-item" href="registro_de_alumno.html">Registro</a></li>
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Evaluación docente
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="evdocente.html">Realizar evaluación</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <a href="centro_de_informacion.html" class="btn btn-light">Centro de información</a>
+      </div>
+    
+      
+    </div>
+  </div>
+  
+  
+  
+
+  <div class="welcome">
+    Bienvenid(@)<br>
+    Perla Angelica Hernandez Aguilar<br>
+    (211070025)
+  </div>
+  <img src="../assets/imagenes/mapache.png" alt="Engranaje" class="gear-img">
+  <div class="reticula-container d-flex justify-content-center flex-wrap">
+    <!-- Semestres -->
+    <div class="semestre-col">
+      <h6>Semestre 1</h6>
+      <div class="materia cursada">ACF-0901 Fund. de Inv.</div>
+      <div class="materia cursada">AED-1286 Fund. de Prog.</div>
+    </div>
+
+    <div class="semestre-col">
+      <h6>Semestre 2</h6>
+      <div class="materia cursada">ACF-0902 Taller Ética</div>
+      <div class="materia cursada">AED-1287 Estructuras Datos</div>
+    </div>
+
+    <div class="semestre-col">
+      <h6>Semestre 3</h6>
+      <div class="materia disponible">
+        <label><input type="checkbox" value="Sistemas Operativos"> AED-1288 Sistemas Operativos</label>
+      </div>
+      <div class="materia disponible">
+        <label><input type="checkbox" value="Base de Datos"> AED-1289 Base de Datos</label>
+      </div>
+    </div>
+
+    <div class="semestre-col">
+      <h6>Semestre 4</h6>
+      <div class="materia bloqueada">AED-1290 Prog. Web</div>
+      <div class="materia bloqueada">AED-1291 Redes</div>
+    </div>
+  </div>
+
+  <!-- Botón para generar horario -->
+  <div class="container text-center mt-4">
+    <button id="btnGenerar" class="btn btn-primary">Generar Horario</button>
+  </div>
+
+  <!-- Horario generado -->
+  <div class="container horario-box mt-3">
+    <h4>Horario Generado</h4>
+    <p class="text-muted">Generar horario una vez seleccionadas las materias que se quieran.</p>
+    <div class="horario-list" id="horario">
+      No hay materias seleccionadas.
+    </div>
+  </div>
+  <div class="home">
+    <a href="alumnosistema.html">
+      <img src="../assets/imagenes/inicio.png" alt="Ir al inicio"><br>
+      Inicio
+    </a>
+  </div>
+
+  <div class="logout">
+    <a href="index.html">
+      <img src="../assets/imagenes/desconectar.png" alt="Cerrar sesión"><br>
+      Cerrar sesión
+    </a>
+  </div>
+  
+  <script>
+    const checkboxes = document.querySelectorAll('.materia.disponible input');
+    const horarioDiv = document.getElementById('horario');
+    const btnGenerar = document.getElementById('btnGenerar');
+
+    btnGenerar.addEventListener('click', () => {
+      const seleccionadas = [];
+      checkboxes.forEach(chk => {
+        if (chk.checked) {
+          seleccionadas.push(chk.value);
+        }
+        // Deshabilitar todos los checkboxes después de generar
+        chk.disabled = true;
+      });
+
+      if (seleccionadas.length > 0) {
+        horarioDiv.innerHTML = "<ul>" + seleccionadas.map(m => `<li>${m}</li>`).join("") + "</ul>";
+      } else {
+        horarioDiv.innerHTML = "No hay materias seleccionadas.";
+      }
+
+      // Deshabilitar el botón para que no se genere otra vez
+      btnGenerar.disabled = true;
+      btnGenerar.textContent = "Horario Generado";
+      btnGenerar.classList.remove('btn-primary');
+      btnGenerar.classList.add('btn-success');
+    });
+  </script>
+  
+
+</body>
+</html>

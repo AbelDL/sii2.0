@@ -1,0 +1,81 @@
+body {
+    background-color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #0a2a5e;
+    color: white;
+    padding: 15px 0;
+  }
+  
+  .logo-left,
+  .logo-right {
+    height: 50px;
+  }
+  
+  .nav-buttons .btn {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 14px;
+  }
+  
+  .welcome {
+    margin: 30px 0 15px;
+    font-weight: bold;
+  }
+  
+  .gear-img {
+    width: 100px;
+    margin: 10px 0;
+  }
+  
+  .info-container {
+    max-width: 600px;
+  }
+  
+  .info-box {
+    background-color: #1B396A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px 4px 0 0;
+    font-weight: bold;
+  }
+  
+  .info-text {
+    background-color: #e6e6e6;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 0 0 4px 4px;
+    text-align: justify;
+  }
+  
+  .logout {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .logout img {
+    width: 40px;
+  }
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #1B396A;
+    color: white;
+  }
+  .home {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .home img {
+    width: 40px;
+  }
+  

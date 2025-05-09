@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Alumno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="../assets/alumnosistema.css">
+</head>
+<body>
+
+  <header class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center px-3">
+      <img src="../assets/imagenes/secretaria.png" alt="Logo SEP" class="logo-left">
+      <div>
+        <div>Sistema Integral de Información</div>
+        <strong>INSTITUTO TECNOLOGICO DE MILPA ALTA</strong>
+      </div>
+      <img src="../assets/imagenes/nacional.png" alt="Logo TecNM" class="logo-right">
+    </div>
+  </header>
+
+  <div class="container nav-buttons mt-3">
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+        <div>
+            <a href="perfil.html" class="btn btn-light">Perfil</a>
+          </div>
+      
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Información escolar
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="kardex.html">kardex</a></li>
+          <li><a class="dropdown-item" href="boleta_calificaciones.html">Boleta oficial</a></li>
+          <li><a class="dropdown-item" href="avanceretiruclar.html">Avance reticular</a></li>
+          <li><a class="dropdown-item" href="servicioalumno.html">Servicio social</a></li>
+          <li><a class="dropdown-item" href="residencias.html">Recidencias profesionales</a></li>
+     
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Inscripciones
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="alumnodocumentacion.html">Documentos</a></li>
+          <li><a class="dropdown-item" href="registro_de_alumno.html">Registro</a></li>
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+          Evaluación docente
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="evdocente.html">Realizar evaluación</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <a href="centro_de_informacion.html" class="btn btn-light">Centro de información</a>
+      </div>
+    
+      
+    </div>
+  </div>
+  
+  
+  
+
+  <div class="welcome">
+    Bienvenid(@)<br>
+    Perla Angelica Hernandez Aguilar<br>
+    (211070025)
+  </div>
+
+  <img src="../assets/imagenes/mapache.png" alt="Engranaje" class="gear-img">
+
+  <!-- Buscar boleta y vista previa -->
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Cuadro azul -->
+      <div class="col-md-6">
+        <div class="cuadro-azul p-3">
+          <h5>Selecciona la boleta de calificaciones</h5>
+          <select id="boletaSelect" class="form-control mt-3">
+            <option value="">-- Semestre --</option>
+            <optgroup label="Semestre">
+              <option value="boleta.pdf">Semestre 1</option>
+           
+          </select>
+        </div>
+      </div>
+
+      <!-- Vista previa PDF -->
+      <div class="col-md-6">
+        <div id="pdfPreview" class="vista-pdf">
+          <p class="text-muted">Aquí se mostrará la boleta seleccionada.</p>
+          <embed id="pdfViewer" type="application/pdf" width="100%" height="400px" style="display: none;">
+          <a id="pdfDownload" class="btn btn-outline-primary mt-2" style="display: none;" download>Descargar boleta</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const boletaSelect = document.getElementById("boletaSelect");
+    const pdfViewer = document.getElementById("pdfViewer");
+    const pdfDownload = document.getElementById("pdfDownload");
+
+    boletaSelect.addEventListener("change", function () {
+      const file = this.value;
+      if (file) {
+        const filePath = `../assets/boletas/${file}`;
+        pdfViewer.src = filePath;
+        pdfViewer.style.display = "block";
+        pdfDownload.href = filePath;
+        pdfDownload.style.display = "inline-block";
+        pdfDownload.download = file;
+      } else {
+        pdfViewer.style.display = "none";
+        pdfDownload.style.display = "none";
+      }
+    });
+  </script>
+  
+  <div class="home">
+    <a href="alumnosistema.html">
+      <img src="../assets/imagenes/inicio.png" alt="Ir al inicio"><br>
+      Inicio
+    </a>
+  </div>
+  <div class="logout">
+    <a href="index.html">
+      <img src="../assets/imagenes/desconectar.png" alt="Cerrar sesión"><br>
+      Cerrar sesión
+    </a>
+  </div>
+  
+
+</body>
+</html>
